@@ -53,7 +53,7 @@ public class ProductoRestController {
 
 	@GetMapping("/productos/page/{page}")
 	public Page<Producto> idnex(@PathVariable Integer page) {
-		Pageable pageable = PageRequest.of(page, 8);
+		Pageable pageable = PageRequest.of(page, 3);
 		return productoService.findAll(pageable);
 	}
 
