@@ -32,8 +32,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Producto;
-import com.bolsadeideas.springboot.backend.apirest.models.services.IProductoService;
-import com.bolsadeideas.springboot.backend.apirest.models.services.UploadFileProductoServiceImpl;
+import com.bolsadeideas.springboot.backend.apirest.models.services.IAutoService;
+import com.bolsadeideas.springboot.backend.apirest.models.services.IUploadFileProductoServiceImpl;
 
 @CrossOrigin(origins = { "http://localhost:4200", "*" })
 @RestController
@@ -41,10 +41,10 @@ import com.bolsadeideas.springboot.backend.apirest.models.services.UploadFilePro
 public class ProductoRestController {
 
 	@Autowired
-	private IProductoService productoService;
+	private IAutoService productoService;
 
 	@Autowired
-	private UploadFileProductoServiceImpl uploadService;
+	private IUploadFileProductoServiceImpl uploadService;
 
 	@GetMapping("/productos")
 	public List<Producto> index() {

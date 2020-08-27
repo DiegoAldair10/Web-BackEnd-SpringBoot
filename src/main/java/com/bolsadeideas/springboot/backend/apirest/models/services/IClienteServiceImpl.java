@@ -15,7 +15,7 @@ import com.bolsadeideas.springboot.backend.apirest.models.entity.Cliente;
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Distrito;
 
 @Service
-public class ClienteServiceImpl implements IClienteService {
+public class IClienteServiceImpl implements IClienteService {
 
 	@Autowired
 	private IClienteDao clienteDao;

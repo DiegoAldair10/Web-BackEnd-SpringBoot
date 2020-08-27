@@ -17,9 +17,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
-public class UploadFileProductoServiceImpl implements IUploadFileProductoService {
+public class IUploadFileProductoServiceImpl implements IUploadFileProductoService {
 
-	private final Logger log = LoggerFactory.getLogger(UploadFileProductoServiceImpl.class);
+	private final Logger log = LoggerFactory.getLogger(IUploadFileProductoServiceImpl.class);
 
 	private final static String DIRECTORIO_UPLOAD = "uploads";
 
