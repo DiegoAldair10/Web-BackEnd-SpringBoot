@@ -8,45 +8,45 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bolsadeideas.springboot.backend.apirest.models.dao.IProductoDao;
-import com.bolsadeideas.springboot.backend.apirest.models.entity.Producto;
+import com.bolsadeideas.springboot.backend.apirest.models.dao.IClienteDao;
+import com.bolsadeideas.springboot.backend.apirest.models.entity.Cliente;
 
 @Service
-public class ProductoServiceImpl implements IProductoService {
+public class ClienteServiceImpl implements IClienteService {
 
 	@Autowired
-	private IProductoDao productoDao;
+	private IClienteDao clienteDao;
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Producto> findAll() {
+	public List<Cliente> findAll() {
 
-		return (List<Producto>) productoDao.findAll();
+		return (List<Cliente>) clienteDao.findAll();
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Page<Producto> findAll(Pageable pageable) {
-		return productoDao.findAll(pageable);
+	public Page<Cliente> findAll(Pageable pageable) {
+		return clienteDao.findAll(pageable);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Producto findById(Long id) {
-		return productoDao.findById(id).orElse(null);
+	public Cliente findById(Long id) {
+		return clienteDao.findById(id).orElse(null);
 	}
 
 	@Override
 	@Transactional
-	public Producto save(Producto producto) {
-		return productoDao.save(producto);
+	public Cliente save(Cliente producto) {
+		return clienteDao.save(producto);
 	}
 
 	@Override
 	@Transactional
 	public void delete(Long id) {
 
-		productoDao.deleteById(id);
+		clienteDao.deleteById(id);
 
 	}
 

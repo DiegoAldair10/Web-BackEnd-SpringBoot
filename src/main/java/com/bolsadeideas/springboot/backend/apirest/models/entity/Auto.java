@@ -17,8 +17,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "productos")
-public class Producto implements Serializable {
+@Table(name = "autos")
+public class Auto implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,15 +30,14 @@ public class Producto implements Serializable {
 	private String nombre;
 
 	@NotEmpty(message = "no puede estar vacio")
-	private String descripcion;
-	
+	private String modelo;
 
-    @NotNull(message = "Debes especificar el precio")
-    @Min(value = 0, message = "El precio mínimo es 0")
+	@NotNull(message = "Debes especificar el precio")
+	@Min(value = 0, message = "El precio mínimo es 0")
 	private Float precio;
 
 	@NotNull(message = "no puede estar vacio")
-	@Column(name = "fechaProducto")
+	@Column(name = "fechaAuto")
 	@Temporal(TemporalType.DATE)
 	private Date fechaPro;
 
@@ -47,7 +46,7 @@ public class Producto implements Serializable {
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -59,23 +58,21 @@ public class Producto implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getDescripcion() {
-		return descripcion;
+
+	public String getModelo() {
+		return modelo;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
 	}
+
 	public Float getPrecio() {
 		return precio;
 	}
 
 	public void setPrecio(Float precio) {
 		this.precio = precio;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	public Date getFechaPro() {
