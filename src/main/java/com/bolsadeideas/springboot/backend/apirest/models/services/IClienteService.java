@@ -31,7 +31,7 @@ public interface IClienteService {
 
 	public Alquiler saveAlquiler(Alquiler alquiler);
 
-	public Void deleteAlquilerByid(Long id);
+	public void deleteAlquilerById(Long id);
 
 	// Busqueda de Autos
 

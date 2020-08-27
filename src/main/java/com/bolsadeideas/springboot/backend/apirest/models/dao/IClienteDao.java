@@ -12,5 +12,5 @@ public interface IClienteDao extends JpaRepository<Cliente, Long>{
 
 
 	@Query("from Distrito")
-	public List<Distrito> findAllRegiones();
+	public List<Distrito> findAllDistritos();
 }

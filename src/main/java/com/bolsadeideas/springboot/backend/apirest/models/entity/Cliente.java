@@ -1,6 +1,7 @@
 package com.bolsadeideas.springboot.backend.apirest.models.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +23,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "clientes")
 public class Cliente implements Serializable {
@@ -35,14 +37,12 @@ public class Cliente implements Serializable {
 	@Column(nullable = false)
 	private String nombre;
 
-
 	@NotEmpty(message = "no puede estar vacio")
 	private String apellido;
-	
+
 	@NotEmpty(message = "no puede estar vacio")
 	@Size(max = 8, message = "el tamaño tiene ser 8 digitos")
 	private String dni;
-
 
 	@NotEmpty(message = "no puede estar vacio")
 	@Size(max = 9, message = "el tamaño tiene ser 9 digitos")
@@ -52,19 +52,21 @@ public class Cliente implements Serializable {
 	@Column(name = "fechacliente")
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
-	
-	@NotNull(message = "el distrito no puede ser vacia")
+
+	@NotNull(message = "la distrito no puede ser vacia")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "distrito_id")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Distrito distrito;
 
-	@JsonIgnoreProperties(value={ "cliente","hibernateLazyInitializer", "handler"}, allowSetters = true)
+	@JsonIgnoreProperties(value = { "cliente", "hibernateLazyInitializer", "handler" }, allowSetters = true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL)
-	private List<Alquiler>alquler;
-	
-	
-	
+	private List<Alquiler> alquiler;
+
+	public Cliente() {
+		this.alquiler = new ArrayList<Alquiler>();
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -121,16 +123,12 @@ public class Cliente implements Serializable {
 		this.distrito = distrito;
 	}
 
-	public List<Alquiler> getAlquler() {
-		return alquler;
+	public List<Alquiler> getAlquiler() {
+		return alquiler;
 	}
 
-	public void setAlquler(List<Alquiler> alquler) {
-		this.alquler = alquler;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public void setAlquiler(List<Alquiler> alquiler) {
+		this.alquiler = alquiler;
 	}
 
 	private static final long serialVersionUID = 1L;

@@ -30,7 +30,7 @@ import com.bolsadeideas.springboot.backend.apirest.models.services.IClienteServi
 
 @CrossOrigin(origins = { "http://localhost:4200", "*" })
 @RestController
-@RequestMapping("/sistema/autos")
+@RequestMapping("/sistema")
 public class ClienteRestController {
 	
 	@Autowired
@@ -70,14 +70,17 @@ public class ClienteRestController {
 
 	@PostMapping("/clientes")
 	public ResponseEntity<?> create(@Valid @RequestBody Cliente cliente, BindingResult result) {
+
 		Cliente clienteNew = null;
 		Map<String, Object> response = new HashMap<>();
 
 		if (result.hasErrors()) {
-			List<String> erros = result.getFieldErrors().stream()
+
+			List<String> errors = result.getFieldErrors().stream()
 					.map(err -> "El campo '" + err.getField() + "' " + err.getDefaultMessage())
 					.collect(Collectors.toList());
-			response.put("errors", erros);
+
+			response.put("errors", errors);
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
 		}
 
@@ -88,7 +91,8 @@ public class ClienteRestController {
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		response.put("mensaje", "El clientes ha sido creado con éxito!");
+
+		response.put("mensaje", "El cliente ha sido creado con éxito!");
 		response.put("cliente", clienteNew);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}

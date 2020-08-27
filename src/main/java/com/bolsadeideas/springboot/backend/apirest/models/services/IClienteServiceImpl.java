@@ -8,6 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bolsadeideas.springboot.backend.apirest.models.dao.IAlquilerDao;
+import com.bolsadeideas.springboot.backend.apirest.models.dao.IAutoDao;
 import com.bolsadeideas.springboot.backend.apirest.models.dao.IClienteDao;
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Alquiler;
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Auto;
@@ -19,6 +21,12 @@ public class IClienteServiceImpl implements IClienteService {
 
 	@Autowired
 	private IClienteDao clienteDao;
+
+	@Autowired
+	private IAlquilerDao alquilerDao;
+
+	@Autowired
+	private IAutoDao autoDao;
 
 	@Override
 	@Transactional(readOnly = true)
@@ -53,35 +61,39 @@ public class IClienteServiceImpl implements IClienteService {
 
 	}
 
-	
+	/* Dsitrito */
+
 	@Override
+	@Transactional
 	public List<Distrito> finAllDistritos() {
-		// TODO Auto-generated method stub
-		return null;
+		return clienteDao.findAllDistritos();
 	}
 
+	/* Alquiler */
+
 	@Override
+	@Transactional(readOnly = true)
 	public Alquiler findAlquilerById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return alquilerDao.findById(id).orElse(null);
 	}
 
 	@Override
+	@Transactional
 	public Alquiler saveAlquiler(Alquiler alquiler) {
-		// TODO Auto-generated method stub
-		return null;
+		return alquilerDao.save(alquiler);
 	}
 
 	@Override
-	public Void deleteAlquilerByid(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional
+	public void deleteAlquilerById(Long id) {
+		alquilerDao.deleteById(id);
 	}
 
+	/* Autos */
 	@Override
+	@Transactional(readOnly = true)
 	public List<Auto> findAutoByNombre(String term) {
-		// TODO Auto-generated method stub
-		return null;
+		return autoDao.findByNombreStartingWithIgnoreCase(term);
 	}
 
 }
