@@ -9,7 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bolsadeideas.springboot.backend.apirest.models.dao.IClienteDao;
+import com.bolsadeideas.springboot.backend.apirest.models.entity.Alquiler;
+import com.bolsadeideas.springboot.backend.apirest.models.entity.Auto;
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Cliente;
+import com.bolsadeideas.springboot.backend.apirest.models.entity.Distrito;
 
 @Service
 public class ClienteServiceImpl implements IClienteService {
@@ -48,6 +51,37 @@ public class ClienteServiceImpl implements IClienteService {
 
 		clienteDao.deleteById(id);
 
+	}
+
+	
+	@Override
+	public List<Distrito> finAllDistritos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Alquiler findAlquilerById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Alquiler saveAlquiler(Alquiler alquiler) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Void deleteAlquilerByid(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Auto> findAutoByNombre(String term) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
