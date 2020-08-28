@@ -32,6 +32,9 @@ public class Auto implements Serializable {
 	@NotEmpty(message = "no puede estar vacio")
 	private String modelo;
 
+	@NotEmpty(message = "no puede estar vacio")
+	private String descripcion;
+
 	@NotNull(message = "Debes especificar el precio")
 	@Min(value = 0, message = "El precio mínimo es 0")
 	private Float precio;
@@ -59,6 +62,14 @@ public class Auto implements Serializable {
 		this.nombre = nombre;
 	}
 
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
 	public String getModelo() {
 		return modelo;
 	}
@@ -74,7 +85,7 @@ public class Auto implements Serializable {
 	public void setPrecio(Float precio) {
 		this.precio = precio;
 	}
-	
+
 	public Date getFecha_auto() {
 		return fecha_auto;
 	}

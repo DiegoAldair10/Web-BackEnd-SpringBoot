@@ -54,7 +54,7 @@ public class AutoRestController {
 
 	@GetMapping("/autos/page/{page}")
 	public Page<Auto> idnex(@PathVariable Integer page) {
-		Pageable pageable = PageRequest.of(page, 8);
+		Pageable pageable = PageRequest.of(page, 6);
 		return autoService.findAll(pageable);
 	}
 
@@ -126,6 +126,7 @@ public class AutoRestController {
 		try {
 			autoActual.setNombre(auto.getNombre());
 			autoActual.setModelo(auto.getModelo());
+			autoActual.setDescripcion(auto.getDescripcion());
 			autoActual.setPrecio(auto.getPrecio());
 			autoActual.setFecha_auto(auto.getFecha_auto());
 			autoActual.setFoto(auto.getFoto());
