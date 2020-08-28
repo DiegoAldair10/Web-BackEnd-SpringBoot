@@ -26,16 +26,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Cliente;
+import com.bolsadeideas.springboot.backend.apirest.models.entity.Distrito;
 import com.bolsadeideas.springboot.backend.apirest.models.services.IClienteService;
 
 @CrossOrigin(origins = { "http://localhost:4200", "*" })
 @RestController
 @RequestMapping("/sistema")
 public class ClienteRestController {
-	
+
 	@Autowired
 	private IClienteService clienteService;
-	
 
 	@GetMapping("/clientes")
 	public List<Cliente> index() {
@@ -98,8 +98,7 @@ public class ClienteRestController {
 	}
 
 	@PutMapping("/clientes/{id}")
-	public ResponseEntity<?> update(@Valid @RequestBody Cliente cliente, BindingResult result,
-			@PathVariable Long id) {
+	public ResponseEntity<?> update(@Valid @RequestBody Cliente cliente, BindingResult result, @PathVariable Long id) {
 
 		Cliente clienteActual = clienteService.findById(id);
 		Cliente clienteUpdate = null;
@@ -145,7 +144,7 @@ public class ClienteRestController {
 		Map<String, Object> response = new HashMap<>();
 		try {
 			Cliente cliente = clienteService.findById(id);
-			//String nombreFotoAnterior = producto.getFoto();
+			// String nombreFotoAnterior = producto.getFoto();
 
 			clienteService.delete(id);
 		} catch (DataAccessException e) {
@@ -160,5 +159,9 @@ public class ClienteRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 	}
 
+	@GetMapping("/clientes/distritos")
+	public List<Distrito> listarDistritos() {
+		return clienteService.finAllDistritos();
+	}
 
 }

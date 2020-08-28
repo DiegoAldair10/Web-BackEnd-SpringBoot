@@ -39,7 +39,7 @@ public class Auto implements Serializable {
 	@NotNull(message = "no puede estar vacio")
 	@Column(name = "fechaAuto")
 	@Temporal(TemporalType.DATE)
-	private Date fechaPro;
+	private Date fecha_auto;
 
 	private String foto;
 
@@ -74,13 +74,13 @@ public class Auto implements Serializable {
 	public void setPrecio(Float precio) {
 		this.precio = precio;
 	}
-
-	public Date getFechaPro() {
-		return fechaPro;
+	
+	public Date getFecha_auto() {
+		return fecha_auto;
 	}
 
-	public void setFechaPro(Date fechaPro) {
-		this.fechaPro = fechaPro;
+	public void setFecha_auto(Date fecha_auto) {
+		this.fecha_auto = fecha_auto;
 	}
 
 	public String getFoto() {

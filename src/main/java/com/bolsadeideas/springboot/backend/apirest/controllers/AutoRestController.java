@@ -33,19 +33,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Auto;
 import com.bolsadeideas.springboot.backend.apirest.models.services.IAutoService;
-import com.bolsadeideas.springboot.backend.apirest.models.services.IUploadFileProductoServiceImpl;
+import com.bolsadeideas.springboot.backend.apirest.models.services.IUploadFileAutoServiceImpl;
 
 
 @CrossOrigin(origins = { "http://localhost:4200", "*" })
 @RestController
-@RequestMapping("/sistema/autos")
+@RequestMapping("/sistema")
 public class AutoRestController {
 
 	@Autowired
 	private IAutoService autoService;
 
 	@Autowired
-	private IUploadFileProductoServiceImpl uploadService;
+	private IUploadFileAutoServiceImpl uploadService;
 
 	@GetMapping("/autos")
 	public List<Auto> index() {
@@ -127,7 +127,7 @@ public class AutoRestController {
 			autoActual.setNombre(auto.getNombre());
 			autoActual.setModelo(auto.getModelo());
 			autoActual.setPrecio(auto.getPrecio());
-			autoActual.setFechaPro(auto.getFechaPro());
+			autoActual.setFecha_auto(auto.getFecha_auto());
 			autoActual.setFoto(auto.getFoto());
 
 			autoUpdate = autoService.save(autoActual);
@@ -179,7 +179,7 @@ public class AutoRestController {
 
 				nombreArchivo = uploadService.copiar(archivo);
 			} catch (IOException e) {
-				response.put("mensaje", "Error al subir imagen del producto");
+				response.put("mensaje", "Error al subir imagen del auto");
 				response.put("error", e.getMessage().concat(": ").concat(e.getCause().getMessage()));
 				return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
