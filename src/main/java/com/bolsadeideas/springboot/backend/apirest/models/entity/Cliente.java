@@ -41,17 +41,19 @@ public class Cliente implements Serializable {
 	private String apellido;
 
 	@NotEmpty(message = "no puede estar vacio")
-	@Size(max = 8, message = "el tamaño tiene ser 8 digitos")
+	@Size(min=1, max = 8, message = "el tamaño tiene ser 8 digitos")
 	private String dni;
 
 	@NotEmpty(message = "no puede estar vacio")
-	@Size(max = 9, message = "el tamaño tiene ser 9 digitos")
+	@Size(min=1, max = 9, message = "el tamaño tiene ser 9 digitos")
 	private String telefono;
 
 	@NotNull(message = "no puede estar vacio")
 	@Column(name = "fechacliente")
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
+
+	private String foto;
 
 	@NotNull(message = "la distrito no puede ser vacia")
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -115,6 +117,14 @@ public class Cliente implements Serializable {
 		this.fecha = fecha;
 	}
 
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
 	public Distrito getDistrito() {
 		return distrito;
 	}
@@ -122,7 +132,6 @@ public class Cliente implements Serializable {
 	public void setDistrito(Distrito distrito) {
 		this.distrito = distrito;
 	}
-
 	public List<Alquiler> getAlquiler() {
 		return alquiler;
 	}
