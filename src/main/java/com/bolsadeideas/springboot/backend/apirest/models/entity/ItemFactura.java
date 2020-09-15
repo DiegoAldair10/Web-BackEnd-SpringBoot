@@ -12,13 +12,15 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Table(name = "alquiler_items")
 @Entity
-public class ItemAlquiler implements Serializable {
+@Table(name = "facturas_items")
+public class ItemFactura implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	private Integer cantidad;
 
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -30,6 +32,19 @@ public class ItemAlquiler implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public Double getImporte() {
+
+		return cantidad.doubleValue() * auto.getPrecio();
 	}
 
 	public Auto getAuto() {

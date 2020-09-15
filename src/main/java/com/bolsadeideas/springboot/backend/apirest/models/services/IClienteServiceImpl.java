@@ -8,13 +8,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bolsadeideas.springboot.backend.apirest.models.dao.IAlquilerDao;
+import com.bolsadeideas.springboot.backend.apirest.models.dao.IFacturaDao;
 import com.bolsadeideas.springboot.backend.apirest.models.dao.IAutoDao;
 import com.bolsadeideas.springboot.backend.apirest.models.dao.IClienteDao;
-import com.bolsadeideas.springboot.backend.apirest.models.entity.Alquiler;
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Auto;
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Cliente;
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Distrito;
+import com.bolsadeideas.springboot.backend.apirest.models.entity.Factura;
 
 @Service
 public class IClienteServiceImpl implements IClienteService {
@@ -23,7 +23,7 @@ public class IClienteServiceImpl implements IClienteService {
 	private IClienteDao clienteDao;
 
 	@Autowired
-	private IAlquilerDao alquilerDao;
+	private IFacturaDao facturaDao;
 
 	@Autowired
 	private IAutoDao autoDao;
@@ -69,24 +69,25 @@ public class IClienteServiceImpl implements IClienteService {
 		return clienteDao.findAllDistritos();
 	}
 
-	/* Alquiler */
+	/* Factura */
 
 	@Override
 	@Transactional(readOnly = true)
-	public Alquiler findAlquilerById(Long id) {
-		return alquilerDao.findById(id).orElse(null);
+	public Factura findFacturaById(Long id) {
+
+		return facturaDao.findById(id).orElse(null);
 	}
 
 	@Override
 	@Transactional
-	public Alquiler saveAlquiler(Alquiler alquiler) {
-		return alquilerDao.save(alquiler);
+	public Factura saveFactura(Factura factura) {
+		return facturaDao.save(factura);
 	}
 
 	@Override
 	@Transactional
-	public void deleteAlquilerById(Long id) {
-		alquilerDao.deleteById(id);
+	public void deleteFacturaById(Long id) {
+		facturaDao.deleteById(id);
 	}
 
 	/* Autos */

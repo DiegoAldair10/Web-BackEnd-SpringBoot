@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.bolsadeideas.springboot.backend.apirest.models.entity.Alquiler;
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Auto;
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Cliente;
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Distrito;
+import com.bolsadeideas.springboot.backend.apirest.models.entity.Factura;
 
 public interface IClienteService {
 
@@ -27,11 +27,12 @@ public interface IClienteService {
 
 	// Alquiler
 
-	public Alquiler findAlquilerById(Long id);
+	public Factura findFacturaById(Long id);
 
-	public Alquiler saveAlquiler(Alquiler alquiler);
+	public Factura saveFactura(Factura factura);
 
-	public void deleteAlquilerById(Long id);
+	public void deleteFacturaById(Long id);
+	
 
 	// Busqueda de Autos
 

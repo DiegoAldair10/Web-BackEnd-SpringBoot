@@ -41,11 +41,11 @@ public class Cliente implements Serializable {
 	private String apellido;
 
 	@NotEmpty(message = "no puede estar vacio")
-	@Size(min=1, max = 8, message = "el tamaño tiene ser 8 digitos")
+	@Size(min = 1, max = 8, message = "el tamaño tiene ser 8 digitos")
 	private String dni;
 
 	@NotEmpty(message = "no puede estar vacio")
-	@Size(min=1, max = 9, message = "el tamaño tiene ser 9 digitos")
+	@Size(min = 1, max = 9, message = "el tamaño tiene ser 9 digitos")
 	private String telefono;
 
 	@NotNull(message = "no puede estar vacio")
@@ -63,10 +63,10 @@ public class Cliente implements Serializable {
 
 	@JsonIgnoreProperties(value = { "cliente", "hibernateLazyInitializer", "handler" }, allowSetters = true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL)
-	private List<Alquiler> alquiler;
+	private List<Factura> facturas;
 
 	public Cliente() {
-		this.alquiler = new ArrayList<Alquiler>();
+		this.facturas = new ArrayList<Factura>();
 	}
 
 	public Long getId() {
@@ -132,12 +132,13 @@ public class Cliente implements Serializable {
 	public void setDistrito(Distrito distrito) {
 		this.distrito = distrito;
 	}
-	public List<Alquiler> getAlquiler() {
-		return alquiler;
+
+	public List<Factura> getFacturas() {
+		return facturas;
 	}
 
-	public void setAlquiler(List<Alquiler> alquiler) {
-		this.alquiler = alquiler;
+	public void setFacturas(List<Factura> facturas) {
+		this.facturas = facturas;
 	}
 
 	private static final long serialVersionUID = 1L;

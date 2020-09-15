@@ -32,7 +32,7 @@ public class IUploadFileClienteServiceImpl  implements IUploadFileClienteService
 
 		if (!recurso.exists() && !recurso.isReadable()) {
 
-			rutaArchivo = Paths.get("src/main/resources/static/clientes").resolve("user.png").toAbsolutePath();
+			rutaArchivo = Paths.get("src/main/resources/static/images").resolve("baseline_sentiment_very_dissatisfied_black_36dp.png").toAbsolutePath();
 
 			recurso = new UrlResource(rutaArchivo.toUri());
 			log.error("Error no se puede cargar la imagen: " + nombreFoto);
