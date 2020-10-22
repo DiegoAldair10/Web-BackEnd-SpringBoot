@@ -30,7 +30,19 @@ public class Auto implements Serializable {
 	private String nombre;
 
 	@NotEmpty(message = "no puede estar vacio")
+	private String marca;
+
+	@NotEmpty(message = "no puede estar vacio")
 	private String modelo;
+
+	@NotEmpty(message = "no puede estar vacio")
+	private String tipo_Auto;
+
+	@NotEmpty(message = "no puede estar vacio")
+	private String tipo_Combustible;
+
+	@NotEmpty(message = "no puede estar vacio")
+	private String placa;
 
 	@NotEmpty(message = "no puede estar vacio")
 	private String descripcion;
@@ -62,12 +74,12 @@ public class Auto implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getMarca() {
+		return marca;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setMarca(String marca) {
+		this.marca = marca;
 	}
 
 	public String getModelo() {
@@ -76,6 +88,38 @@ public class Auto implements Serializable {
 
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
+	}
+
+	public String getTipo_Auto() {
+		return tipo_Auto;
+	}
+
+	public void setTipo_Auto(String tipo_Auto) {
+		this.tipo_Auto = tipo_Auto;
+	}
+
+	public String getTipo_Combustible() {
+		return tipo_Combustible;
+	}
+
+	public void setTipo_Combustible(String tipo_Combustible) {
+		this.tipo_Combustible = tipo_Combustible;
+	}
+
+	public String getPlaca() {
+		return placa;
+	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public Float getPrecio() {

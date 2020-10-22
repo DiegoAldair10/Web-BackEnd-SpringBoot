@@ -27,12 +27,16 @@ public interface IClienteService {
 
 	// Alquiler
 
+	public List<Factura> findAllFactura();
+
+	public Page<Factura> findAllFactura(Pageable pageable);
+	
 	public Factura findFacturaById(Long id);
 
 	public Factura saveFactura(Factura factura);
 
 	public void deleteFacturaById(Long id);
-	
+
 
 	// Busqueda de Autos
 

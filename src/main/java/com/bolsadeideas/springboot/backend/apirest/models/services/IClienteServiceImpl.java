@@ -73,6 +73,19 @@ public class IClienteServiceImpl implements IClienteService {
 
 	@Override
 	@Transactional(readOnly = true)
+	public List<Factura> findAllFactura() {
+
+		return (List<Factura>) facturaDao.findAll();
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Page<Factura> findAllFactura(Pageable pageable) {
+		return facturaDao.findAll(pageable);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
 	public Factura findFacturaById(Long id) {
 
 		return facturaDao.findById(id).orElse(null);

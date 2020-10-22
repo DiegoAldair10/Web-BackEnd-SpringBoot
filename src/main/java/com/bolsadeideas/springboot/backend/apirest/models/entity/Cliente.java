@@ -45,6 +45,15 @@ public class Cliente implements Serializable {
 	private String dni;
 
 	@NotEmpty(message = "no puede estar vacio")
+	private String ruc;
+
+	@NotEmpty(message = "no puede estar vacio")
+	private String email;
+
+	@NotEmpty(message = "no puede estar vacio")
+	private String direccion;
+
+	@NotEmpty(message = "no puede estar vacio")
 	@Size(min = 1, max = 9, message = "el tamaño tiene ser 9 digitos")
 	private String telefono;
 
@@ -139,6 +148,30 @@ public class Cliente implements Serializable {
 
 	public void setFacturas(List<Factura> facturas) {
 		this.facturas = facturas;
+	}
+
+	public String getRuc() {
+		return ruc;
+	}
+
+	public void setRuc(String ruc) {
+		this.ruc = ruc;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 
 	private static final long serialVersionUID = 1L;

@@ -126,7 +126,11 @@ public class AutoRestController {
 		try {
 			autoActual.setNombre(auto.getNombre());
 			autoActual.setModelo(auto.getModelo());
+			autoActual.setMarca(auto.getMarca());
+			autoActual.setTipo_Auto(auto.getTipo_Auto());
+			autoActual.setTipo_Combustible(auto.getTipo_Combustible());
 			autoActual.setDescripcion(auto.getDescripcion());
+			autoActual.setPlaca(auto.getPlaca());
 			autoActual.setPrecio(auto.getPrecio());
 			autoActual.setFecha_auto(auto.getFecha_auto());
 			autoActual.setFoto(auto.getFoto());

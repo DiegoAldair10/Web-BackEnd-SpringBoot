@@ -130,7 +130,10 @@ public class ClienteRestController {
 		try {
 			clienteActual.setNombre(cliente.getNombre());
 			clienteActual.setApellido(cliente.getApellido());
+			clienteActual.setRuc(cliente.getRuc());
 			clienteActual.setDni(cliente.getDni());
+			clienteActual.setEmail(cliente.getEmail());
+			clienteActual.setDireccion(cliente.getDireccion());
 			clienteActual.setTelefono(cliente.getTelefono());
 			clienteActual.setFecha(cliente.getFecha());
 			clienteActual.setFoto(cliente.getFoto());
