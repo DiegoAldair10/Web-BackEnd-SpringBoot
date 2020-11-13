@@ -4,7 +4,7 @@ Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: diego
 Implementation-Vendor-Id: com.bolsadeideas.springboot.backend.apirest
 Build-Jdk: 1.8.0_241
-Implementation-URL: http://projects.spring.io/spring-boot/spring-boot-
- starter-parent/spring-boot-backend-apirest/
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/spring-boot-backend-apirest
 Created-By: Maven Integration for Eclipse
 

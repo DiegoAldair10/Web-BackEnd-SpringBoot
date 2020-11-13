@@ -18,6 +18,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -58,6 +59,8 @@ public class AutoRestController {
 		return autoService.findAll(pageable);
 	}
 
+
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@GetMapping("/autos/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id) {
 		Auto auto = null;
@@ -78,6 +81,8 @@ public class AutoRestController {
 		return new ResponseEntity<Auto>(auto, HttpStatus.OK);
 	}
 
+
+	@Secured({"ROLE_ADMIN"})
 	@PostMapping("/autos")
 	public ResponseEntity<?> create(@Valid @RequestBody Auto auto, BindingResult result) {
 		Auto autoNew = null;
@@ -103,6 +108,7 @@ public class AutoRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 
+	@Secured({"ROLE_ADMIN"})
 	@PutMapping("/autos/{id}")
 	public ResponseEntity<?> update(@Valid @RequestBody Auto auto, BindingResult result, @PathVariable Long id) {
 
@@ -148,6 +154,7 @@ public class AutoRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 
+	@Secured({"ROLE_ADMIN"})
 	@DeleteMapping("/autos/{id}")
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 
@@ -170,6 +177,7 @@ public class AutoRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 	}
 
+	@Secured({"ROLE_ADMIN"})
 	@PostMapping("/autos/upload")
 	public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile archivo, @RequestParam("id") Long id) {
 

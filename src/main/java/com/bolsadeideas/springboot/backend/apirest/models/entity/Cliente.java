@@ -33,6 +33,10 @@ public class Cliente implements Serializable {
 	private Long id;
 
 	@NotEmpty(message = "no puede estar vacio")
+	@Size(min = 1, max = 10, message = "el tamaño tiene que tener 10")
+	private String ruc;
+
+	@NotEmpty(message = "no puede estar vacio")
 	@Size(min = 2, max = 12, message = "el tamaño tiene que estar entre 4 y 12")
 	@Column(nullable = false)
 	private String nombre;
@@ -40,15 +44,14 @@ public class Cliente implements Serializable {
 	@NotEmpty(message = "no puede estar vacio")
 	private String apellido;
 
+	@NotNull(message = "no puede estar vacio")
+	@Column(name = "fechacliente")
+	@Temporal(TemporalType.DATE)
+	private Date fecha;
+
 	@NotEmpty(message = "no puede estar vacio")
 	@Size(min = 1, max = 8, message = "el tamaño tiene ser 8 digitos")
 	private String dni;
-
-	@NotEmpty(message = "no puede estar vacio")
-	private String ruc;
-
-	@NotEmpty(message = "no puede estar vacio")
-	private String email;
 
 	@NotEmpty(message = "no puede estar vacio")
 	private String direccion;
@@ -57,10 +60,8 @@ public class Cliente implements Serializable {
 	@Size(min = 1, max = 9, message = "el tamaño tiene ser 9 digitos")
 	private String telefono;
 
-	@NotNull(message = "no puede estar vacio")
-	@Column(name = "fechacliente")
-	@Temporal(TemporalType.DATE)
-	private Date fecha;
+	@NotEmpty(message = "no puede estar vacio")
+	private String email;
 
 	private String foto;
 
